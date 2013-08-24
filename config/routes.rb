@@ -17,7 +17,7 @@ Xhero::Application.routes.draw do
   get "wxs/io",  to: "wxs#auth"
 
   scope path: "/", via: :post, defaults: { format: 'xml'} do
-    match 'wxs/io', to: 'wxs#reply_text', constraints: Weixin::Router.new(type: "text")
+    match 'wxs/io', to: 'weixins#reply_text', constraints: Weixin::Router.new(type: "text")
   end
   # Example resource route with options:
   #   resources :products do
