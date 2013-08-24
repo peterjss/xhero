@@ -9,12 +9,13 @@ class Weixin::WeixinsController < ApplicationController
 
   def reply_text
     puts 'in reply text.'
+    puts params[:xml].inspect
+    #puts params[:xml][:MsgType]
 
-    puts weixin_xml.type
-    puts weixin_xml.from_user
-    puts weixin_xml.to_user
-    puts weixin_xml.content
-    render 'reply_text', status:200
+
+
+    render 'reply_text', :formats => :xml, status:200
+
     #puts params[:xml][:ToUserName]
     #puts params[:xml][:Content]
     #  render "reply_text"
