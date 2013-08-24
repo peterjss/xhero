@@ -14,7 +14,7 @@ Xhero::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  get "wxs/io",  to: "wxs#auth"
+  get "wxs/io",  to: "weixins#auth"
 
   scope path: "/", via: :post, defaults: { format: 'xml'} do
     match 'wxs/io', to: 'weixins#reply_text', constraints: Weixin::Router.new(type: "text")
