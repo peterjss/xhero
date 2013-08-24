@@ -1,0 +1,2 @@
+module Weixin::WeixinsHelper
+end
