@@ -41,6 +41,7 @@ zh:
   global_export_json: "导出 JSON"
 
   realtime_title: "条消息"
+  realtime_titles: "条消息"
   realtime_breadcrumb_title: "实时消息"
   realtime_toolbar_title: "实时消息"
   realtime_toolbar_add: "创建消息"
