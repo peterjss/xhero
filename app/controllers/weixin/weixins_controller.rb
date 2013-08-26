@@ -14,7 +14,7 @@ class Weixin::WeixinsController < ApplicationController
 
 
 
-    render 'reply_text', :formats => :xml, status:200
+    render 'reply_text', :formats => :xml
 
     #puts params[:xml][:ToUserName]
     #puts params[:xml][:Content]

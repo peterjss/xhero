@@ -1,2 +1,76 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
+
+<style>
+
+    body {
+        background-color: #F5F5F5;
+        padding-bottom: 40px;
+        padding-top: 40px;
+    }
+    .form-signin {
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+        max-width: 320px;
+    }
+
+    .form-signin {
+        background-color: #FFFFFF;
+        border: 1px solid #E5E5E5;
+        border-radius: 5px 5px 5px 5px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        margin: 0 auto 20px;
+        max-width: 300px;
+        padding: 19px 29px 29px;
+    }
+
+    .form-signin {
+        max-width: 320px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 0 0px 40px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 0px 40px rgba(0,0,0,.2);
+        box-shadow: 0 0px 40px rgba(0,0,0,.2);
+    }
+</style>
+
+<div class="container">
+  <%= form_for @user,url:{action: 'login', controller: 'welcome'}, html:{id: 'user_login', class: 'form-signin', method:'post'} do |f| %>
+      <!-- <form id="login-form" class="form-signin" method="post" action=""> -->
+      <h2><i class="icon-heart"></i> You will love it</h2>
+
+      <p class="text-success" style="margin-bottom: 20px;">
+        Login with
+        <b>admin/admin</b>
+      </p>
+
+      <div id="div_id_username" class="form-group">
+        <label class="control-label" for="id_username">
+          <%= f.label :username%>
+          <span class="asterisk_field">*</span>
+        </label>
+
+        <div class="controls">
+          <%= f.text_field :username, class:'form-control', maxlength:254 %>
+          <!--<input id="id_username" class="form-control" type="text" name="username" maxlength="254">-->
+        </div>
+
+      </div>
+
+      <div id="div_id_password" class="form-group">
+        <label class="control-label" for="id_password">
+          Password
+          <%= f.label :Password %>
+          <span class="asterisk_field">*</span>
+        </label>
+
+        <div class="controls">
+          <%= f.password_field :password, class:'form-control'%>
+          <!--<input id="id_password" class="form-control" type="password" name="password">-->
+        </div>
+      </div>
+      <!--<button class="btn btn-large btn-primary btn-block" type="submit">log in</button>-->
+      <%= f.submit 'log in', class:'btn btn-large btn-primary btn-block'%>
+      <!-- </form> -->
+  <% end %>
+</div>

@@ -1,2 +1,1 @@
-<MsgType><![CDATA[text]]></MsgType>
-<Content><![CDATA[You say: <%= params[:xml][:Content] %>?]]></Content>
+<xml><ToUserName><![CDATA[<%= @ToUserName %>]]></ToUserName><FromUserName><![CDATA[<%= @FromUserName %>]]></FromUserName><CreateTime><%= Time.now.to_i %></CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[You say: <%= @Content %>?]]></Content></xml>
