@@ -160,7 +160,17 @@
                   <input class="action-select" type="checkbox" value="4" name="_selected_action">
                 </td>
                 <td>
-                  <%= link_to edit_apps_realtime_path(message) do %><%= message.name %>
+                  <%= link_to edit_apps_realtime_path(message) do %><%= message.toUserName %>
+                  <% end %>
+                  <!--<a href="/app/continent/4/update/">Koodoo</a>-->
+                </td>
+                <td>
+                  <%= link_to edit_apps_realtime_path(message) do %><%= message.fromUserName %>
+                  <% end %>
+                  <!--<a href="/app/continent/4/update/">Koodoo</a>-->
+                </td>
+                <td>
+                  <%= link_to edit_apps_realtime_path(message) do %><%= message.content %>
                   <% end %>
                   <!--<a href="/app/continent/4/update/">Koodoo</a>-->
                 </td>
