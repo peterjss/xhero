@@ -10,6 +10,14 @@ class Weixin::WeixinsController < ApplicationController
   def reply_text
     puts 'in reply text.'
     puts params[:xml].inspect
+
+    @remessage = Remessage.new
+    @remessage[:toUserName] = @weixin_xml.to_user
+    @remessage[:fromUserName] = @weixin_xml.from_user
+    @remessage[:msgType] = @weixin_xml.type
+    @remessage[:content] = @weixin_xml.content
+
+    @remessage.save
     #puts params[:xml][:MsgType]
 
 
@@ -30,4 +38,9 @@ class Weixin::WeixinsController < ApplicationController
     #array = [Rails.configuration.weixin_token, params[:timestamp], params[:nonce]].sort
     #render text: "Forbidden", status: 403 if params[:signature] != Digest::SHA1.hexdigest(array.join)
   end
+
+  def post_params
+    params.require(:xml).permit(:name)
+  end
+
 end
