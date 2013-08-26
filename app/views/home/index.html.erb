@@ -1,0 +1,44 @@
+
+<%= javascript_include_tag "combody"%>
+
+
+<%= render 'layouts/topnav'%>
+
+<div id="body-content" class="row" style="margin-left:0;margin-right: 0;">
+
+  <%= render partial: 'layouts/leftside', locals:{leftmenu: '/'+ params[:controller] }%>
+
+  <div id="content-block" class="col col-xs-12 col-sm-11 col-md-10  col-lg-10">
+    <div class="navbar content-navbar" data-class-lg="navbar content-navbar"
+         data-class-md="navbar content-navbar" data-class-sm="navbar content-navbar navbar-inverse"
+         data-toggle="breakpoint">
+      <!--<button class="navbar-toggle nav-back navbar-left" data-class-name="show_menu" data-target="#body-content"-->
+              <!--data-toggle="class" type="button">-->
+        <!--<i class="icon-list"></i>-->
+      <!--</button>-->
+
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" data-class-name="show_menu" data-target="#body-content" data-toggle="class" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="icon-list"></i>
+        </button>
+        <a class="navbar-brand" data-target="#top-nav .navbar-collapse" data-toggle="collapse">
+          <i class="icon-dashboard"></i>
+          Main Dashboard
+        </a>
+      </div>
+
+      <!--<button class="navbar-btn btn btn-primary pull-right"><i class="icon-plus"></i>-->
+        <!--<span>Add Widget</span></button>-->
+
+      <div class="navbar-btn pull-right">
+        <a class="btn btn-primary" href="#" title="Add Widget">
+          <i class="icon-plus"></i>
+          <span>Add Widget</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'layouts/footer'%>

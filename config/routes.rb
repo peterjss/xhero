@@ -1,5 +1,10 @@
 Xhero::Application.routes.draw do
+  
+  get "home", to:"home#index"
   get "welcome/index"
+  post "welcome/login"
+  get "welcome/index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -16,6 +21,10 @@ Xhero::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  namespace "apps" do
+    resources :users, :remessages
+  end
 
   get "weixin/io",  to: "weixin/weixins#auth"
 

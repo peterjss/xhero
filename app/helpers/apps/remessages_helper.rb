@@ -1,0 +1,2 @@
+module Apps::RemessagesHelper
+end

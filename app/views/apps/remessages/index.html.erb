@@ -1,0 +1,229 @@
+<%= javascript_include_tag "combody" %>
+
+<%= render 'layouts/topnav' %>
+<div id="body-content" class="row" style="margin-left:0;margin-right: 0;">
+
+<%= render partial: 'layouts/leftside', locals:{ leftmenu: '/'+params[:controller] } %>
+
+<div id="content-block" class="col col-xs-12 col-sm-11 col-md-10  col-lg-10">
+
+<!--Breadcrumb-->
+<ul class="breadcrumb">
+  <li><%=link_to home_path do%> <%=I18n.t 'menu_home'%> <% end %></li>
+  <li class="active"> <%=I18n.t 'realtime_breadcrumb_title'%> </li>
+</ul>
+
+<div class="navbar content-navbar navbar-sm" data-class-lg="navbar content-navbar"
+     data-class-md="navbar content-navbar" data-class-sm="navbar content-navbar navbar-inverse"
+     data-toggle="breakpoint">
+  <button class="navbar-toggle nav-back" data-class-name="show_menu" data-target="#body-content"
+          data-toggle="class" type="button">
+    <i class="icon-list"></i>
+  </button>
+
+  <a class="navbar-brand" data-target="#top-nav .navbar-collapse" data-toggle="collapse">
+    <i class="icon-briefcase"></i>
+    <%=I18n.t 'realtime_toolbar_title'%>
+  </a>
+
+  <div class="navbar-btn pull-right">
+    <a class="btn btn-default show-sm" data-target=".content-navbar .navbar-collapse" data-toggle="collapse">
+      <i class="icon-filter icon-white"></i>
+    </a>
+    <%= link_to new_apps_remessage_path, class: 'btn btn-primary' do %>
+        <i class="icon-plus"></i> <span><%=t('realtime_toolbar_add')%></span>
+    <% end %>
+  </div>
+
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li class="dropdown bookmarks">
+        <a id="drop-bookmark" class="dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+           title="Bookmark">
+          <i class="icon-book"></i>
+          	<%=t('global_bookmark')%>
+          <span class="caret"></span>
+        </a>
+        <ul id="bookmark-menu" class="dropdown-menu" role="menu" style="max-height: 508px;">
+          <li>
+            <a class="mute"><%=t('global_bookmark_no')%></a>
+          </li>
+          <li class="divider"></li>
+          <li class="add-bookmark">
+            <a id="a_id_addBookmark" href="#">
+              <i class="icon-plus"></i>
+              <%=t('global_bookmark_new')%>
+            </a>
+
+            <div id="div_id_addBookmark" class="popover right">
+              <div class="arrow"></div>
+              <div class="popover-inner">
+                <h3 class="popover-title"> Save current page as Bookmark </h3>
+
+                <div class="popover-content">
+                  <form id="bookmark_form" action="/app/continent/bookmark/" method="post">
+                    <input type="hidden" value="jzyr1GSvTWVNPfdcdPlqY2DzXYNs9RP3" name="csrfmiddlewaretoken">
+                    <input type="hidden" value="_cols=id.name&o=-name" name="query">
+                    <input type="text" placeholder="Enter bookmark title…" name="title">
+                    <button class="btn btn-success" data-loading-text="Waiting..." type="submit">Save Bookmark</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+
+    <form class="navbar-form pull-left" method="get" action="">
+      <div class="input-group search-group">
+        <input id="searchbar" class="form-control" type="text" placeholder="Search" value="" name="_q_">
+            <span class="input-group-btn">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="submit">
+              <i class="icon-search"></i>
+            </button>
+            </span>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<div class="content-toolbar btn-toolbar pull-right clearfix">
+  <!--List right buttons-->
+  <%= render 'layouts/list_export' %>
+  <%= render 'layouts/list_colums' %>
+  <%= render 'layouts/list_layoutbuttons' %>
+</div>
+
+<ul class="pagination pagination-small pagination-left pagination-inline">
+  <li>
+    <span>
+      <% if @total > 1 %>
+        <b><%= @total %></b> <%=t('realtime_title')%>
+      <% else %>
+        <b><%= @total %></b> <%=t('realtime_titles')%>
+      <% end %>
+      </span>
+  </li>
+</ul>
+<form id="changelist-form" method="post" action="">
+  <div class="results">
+    <% if @total == 0 %>
+        <p class="well"><%= t('global_result_empty')%></p>
+    <% else %>
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+          <tr>
+            <th class="action-checkbox-column" scope="col">
+              <input id="action-toggle" type="checkbox">
+            </th>
+            <th class="sortable sorted ascending" scope="col">
+              <div class="pull-right">
+                <a class="toggle" href="?o=-name">
+                  <i class="icon-sort-up"></i>
+                </a>
+              </div>
+              <div class="dropdown pull-left">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown"> Name </a>
+
+                <ul class="dropdown-menu" role="menu">
+                  <li class="active">
+                    <a class="active" href="?o=name">
+                      <i class="icon-caret-up"></i>
+                      Sort ASC
+                    </a>
+                  </li>
+                  <li>
+                    <a class="active" href="?o=-name">
+                      <i class="icon-caret-down"></i>
+                      Sort DESC
+                    </a>
+                  </li>
+                  <li>
+                    <a class="active" href="?o=">
+                      <i class="icon-remove"></i>
+                      Cancel Sort
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @messages.each do |message| %>
+              <tr class="row1">
+                <td class="action-checkbox">
+                  <input class="action-select" type="checkbox" value="4" name="_selected_action">
+                </td>
+                <td>
+                  <%= link_to edit_apps_realtime_path(message) do %><%= message.name %>
+                  <% end %>
+                  <!--<a href="/app/continent/4/update/">Koodoo</a>-->
+                </td>
+                <td>
+                  <div class="dropdown related_menu pull-right">
+                    <a class="relate_menu dropdown-toggle" data-toggle="dropdown" title="Related Objects">
+                      <i class="icon icon-list"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li class="with_menu_btn">
+                        <%= link_to edit_apps_realtime_path(message) do %>
+                            <i class="icon icon-th-list"></i>
+                            comment
+                        <% end %>
+                        <!--<a title="module" href="/app/module/?_rel_continent__id__exact=4">-->
+                        <!--<i class="icon icon-th-list"></i>-->
+                        <!--comment-->
+                        <!--</a>-->
+                        <a class="add_link dropdown-menu-btn"
+                           href="/app/module/add/?_rel_continent__id__exact=4">
+                          <i class="icon icon-plus pull-right"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+          <% end %>
+          <!--end of each-->
+          </tbody>
+        </table>
+    <% end %>
+    <!--end of if-->
+  </div>
+
+  <div class="form-actions well well-sm">
+    <input id="action" type="hidden" value="" name="action">
+    <input id="select-across" type="hidden" value="0" name="select_across">
+
+    <div class="btn-group clearfix dropup">
+      <a class="dropdown-toggle btn btn-success" href="#" data-toggle="dropdown">
+        <i class="icon-wrench icon-white"></i>
+        <span class="action-counter">0 of 0 selected</span>
+        <span class="all" style="display: none;">1 selected</span>
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dLabel" role="menu">
+        <li>
+          <a onclick="$.do_action('delete_selected');">
+            <i class="icon-remove"></i>
+            Delete selected continents
+          </a>
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+        var _actions_icnt = <%=@total%>;
+    </script>
+  </div>
+</form>
+</div>
+
+</div>
+
+<%= render 'layouts/footer' %>
+
