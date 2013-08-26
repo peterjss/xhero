@@ -12,10 +12,10 @@ class Weixin::WeixinsController < ApplicationController
     puts params[:xml].inspect
 
     @remessage = Remessage.new
-    @remessage[:toUserName] = @weixin_xml.to_user
-    @remessage[:fromUserName] = @weixin_xml.from_user
-    @remessage[:msgType] = @weixin_xml.type
-    @remessage[:content] = @weixin_xml.content
+    @remessage[:toUserName] = weixin_xml.to_user
+    @remessage[:fromUserName] = weixin_xml.from_user
+    @remessage[:msgType] = weixin_xml.type
+    @remessage[:content] = weixin_xml.content
 
     @remessage.save
     #puts params[:xml][:MsgType]
