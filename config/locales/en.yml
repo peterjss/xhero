@@ -21,3 +21,30 @@
 
 en:
   hello: "Hello world"
+  app_title: "WX-Hero"
+  menu_home: "Home"
+  menu_message: "Message"
+  menu_eventsend: "Push Event"
+  menu_contact: "Contacts"
+  menu_material: "Materials"
+  menu_config: "Settings"
+  menu_autoreplay: "Auto Replay"
+
+  global_bookmark: "Bookmarks"
+  global_bookmark_no: "No Bookmark"
+  global_bookmark_new: "Add Bookmark"
+  global_result_empty: "Result Empty"
+  global_export: "Export"
+  global_export_excel: "Export Excel"
+  global_export_csv: "Export CSV"
+  global_export_xml: "Export XML"
+  global_export_json: "Export JSON"
+
+
+  realtime_breadcrumb_title: "Messages"
+
+  realtime_title: "Message"
+  realtime_titles: "Messages"
+  realtime_breadcrumb_title: "Message"
+  realtime_toolbar_title: "Message"
+  realtime_toolbar_add: "Create message"

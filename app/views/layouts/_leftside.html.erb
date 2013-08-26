@@ -1,0 +1,85 @@
+<div id="left-side" class="col col-sm-1 col-md-2 col-lg-2">
+
+  <ul class="well nav nav-pills nav-stacked nav-sitemenu hidden-sm">
+    <% if leftmenu == home_path %>
+    <li class="active">
+      <% else %>
+    <li>
+    <% end %>
+        <%= link_to home_path do %><i class="icon-home"></i> <%= I18n.t 'menu_home'%> <% end %>
+    </li>
+
+    <li class="nav-header active"> Message </li>
+    <li <%= leftmenu == apps_remessages_path ? 'class=active' : '' %> >
+      <!-- <a href="/realtime/index"> <i class="icon-fixed-width icon-briefcase"></i> Projects</a> -->
+       <%= link_to apps_remessages_path do %> <i class="icon-fixed-width icon-briefcase"></i> <%= I18n.t 'menu_message'%>
+       <% end %>
+    </li>
+    <li <%= leftmenu == '' ? 'class=active' : '' %> >
+      <a href="/heroapp/html/bug/bug.html"> <i class="icon-fixed-width icon-bug"></i> <%= I18n.t 'menu_eventsend'%></a>
+    </li>
+    <li class="nav-header active"> Auto</li>
+    <li <%= leftmenu == ''? 'class=active' : '' %> >
+      <a href="/app/continent/"> <i class="icon-fixed-width icon-laptop"></i> <%= I18n.t 'menu_contact'%></a>
+    </li>
+    <li <%= leftmenu == '' ? 'class=active' : '' %> >
+      <a href="/app/continent/"> <i class="icon-fixed-width icon-lock"></i> <%= I18n.t 'menu_material'%></a>
+    </li>
+    <li <%= leftmenu == '' ? 'class=active' : '' %> >
+      <a href="/app/continent/"> <i class="icon-fixed-width icon-user"></i> <%= I18n.t 'menu_autoreplay'%></a>
+    </li>
+    <li class="nav-header active"> System</li>
+    <li <%= leftmenu == ''? 'class=active' : '' %> >
+      <a href="/app/continent/"> <i class="icon-fixed-width icon-cog"></i> <%= I18n.t 'menu_config'%></a>
+    </li>
+  </ul>
+
+  <ul class="well nav nav-pills nav-stacked nav-sitemenu visible-sm">
+    <li class="app_menu">
+      <a href="#"><i class="icon-fixed-width icon-home"></i></a>
+    </li>
+
+    <li class="app_menu">
+      <a class="section dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="icon-fixed-width icon-comments-alt"></i>
+      </a>
+
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li>
+          <%= link_to  do%> <i class="icon-fixed-width icon-briefcase"></i> <%= I18n.t 'menu_message'%> <%end%>
+        </li>
+        <li>
+          <a href="/app/module/"><i class="icon-fixed-width icon-bug"></i> <%= I18n.t 'menu_eventsend'%> </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="app_menu">
+      <a href="#" class="section dropdown-toggle" data-toggle="dropdown">
+        <i class="icon-fixed-width icon-cloud-download"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li>
+          <a href="/app/module/"><i class="icon-fixed-width icon-bug"></i> <%= I18n.t 'menu_contact'%> </a>
+        </li>
+        <li>
+          <a href="/app/module/"><i class="icon-fixed-width icon-bug"></i> <%= I18n.t 'menu_material'%> </a>
+        </li>
+        <li>
+          <a href="/app/module/"><i class="icon-fixed-width icon-bug"></i> <%= I18n.t 'menu_autoreplay'%> </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="app_menu">
+      <a href="#" class="section dropdown-toggle" data-toggle="dropdown">
+        <i class="icon-fixed-width icon-cogs"></i>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li>
+          <a href="/app/module/"><i class="icon-fixed-width icon-bug"></i> <%= I18n.t 'menu_config'%> </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

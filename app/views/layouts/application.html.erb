@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Xhero</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title>WX-Hero</title>
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="author">
+  <meta content="NONE,NOARCHIVE" name="robots">
   <%= csrf_meta_tags %>
+
+
+  <%= stylesheet_link_tag "site", media: "screen" %>
+  <%= stylesheet_link_tag "font-awesome/css/font-awesome", media: "screen" %>
+
+
+
+
+  <%= javascript_include_tag "site" %>
+
+  <!-- <%= javascript_include_tag "bootstrap/js/bootstrap", "data-turbolinks-track" => true %>
+   -->
+
 </head>
 <body>
-
-<%= yield %>
-
+	<%= yield %>        
 </body>
 </html>

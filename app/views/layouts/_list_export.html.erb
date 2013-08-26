@@ -1,0 +1,157 @@
+<div class="btn-group export">
+  <a class="dropdown-toggle btn btn-default btn-small" href="#" data-toggle="dropdown">
+    <i class="icon-share"></i>
+    <%=t('global_export')%>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dLabel" role="menu">
+    <li>
+      <a data-target="#export-modal-xls" data-toggle="modal">
+        <i class="icon-circle-arrow-down"></i>
+        <%=t('global_export_excel')%>
+      </a>
+    </li>
+    <li>
+      <a data-target="#export-modal-csv" data-toggle="modal">
+        <i class="icon-circle-arrow-down"></i>
+        Export CSV
+      </a>
+    </li>
+    <li>
+      <a data-target="#export-modal-xml" data-toggle="modal">
+        <i class="icon-circle-arrow-down"></i>
+        Export XML
+      </a>
+    </li>
+    <li>
+      <a data-target="#export-modal-json" data-toggle="modal">
+        <i class="icon-circle-arrow-down"></i>
+        Export JSON
+      </a>
+    </li>
+  </ul>
+  <div id="export-modal-xls" class="modal fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="" method="get">
+          <div class="modal-header">
+            <button class="close" aria-hidden="true" data-dismiss="modal" type="button">&times;</button>
+            <h4 class="modal-title">Export Excel</h4>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" value="export" name="_do_">
+            <input type="hidden" value="xls" name="export_type">
+            <label class="checkbox">
+              <input type="checkbox" value="on" checked="checked" name="export_xls_header">
+              Export with table header.
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" value="on" name="all">
+              Export all datas.
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+            <button class="btn btn-success" type="submit">
+              <i class="icon-share"></i>
+              Export
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="export-modal-csv" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="" method="get">
+          <div class="modal-header">
+            <button class="close" aria-hidden="true" data-dismiss="modal" type="button">&times;</button>
+            <h4 class="modal-title">Export CSV</h4>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" value="export" name="_do_">
+            <input type="hidden" value="csv" name="export_type">
+            <label class="checkbox">
+              <input type="checkbox" value="on" checked="checked" name="export_csv_header">
+              Export with table header.
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" value="on" name="all">
+              Export all datas.
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+            <button class="btn btn-success" type="submit">
+              <i class="icon-share"></i>
+              Export
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="export-modal-xml" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="" method="get">
+          <div class="modal-header">
+            <button class="close" aria-hidden="true" data-dismiss="modal" type="button">&times;</button>
+            <h4 class="modal-title">Export XML</h4>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" value="export" name="_do_">
+            <input type="hidden" value="xml" name="export_type">
+            <label class="checkbox">
+              <input type="checkbox" value="on" checked="checked" name="export_xml_format">
+              Export with format.
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" value="on" name="all">
+              Export all datas.
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+            <button class="btn btn-success" type="submit">
+              <i class="icon-share"></i>
+              Export
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="export-modal-json" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="" method="get">
+          <div class="modal-header">
+            <button class="close" aria-hidden="true" data-dismiss="modal" type="button">&times;</button>
+            <h4 class="modal-title">Export JSON</h4>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" value="export" name="_do_">
+            <input type="hidden" value="json" name="export_type">
+            <label class="checkbox">
+              <input type="checkbox" value="on" checked="checked" name="export_json_format">
+              Export with format.
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" value="on" name="all">
+              Export all datas.
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+            <button class="btn btn-success" type="submit">
+              <i class="icon-share"></i>
+              Export
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

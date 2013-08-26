@@ -1,0 +1,57 @@
+<div id="top-nav" class="navbar navbar-inverse navbar-fixed-top " role="navigation">
+
+  <button class="navbar-toggle" data-target="#top-nav .navbar-collapse" data-toggle="collapse" type="button">
+    <span class="icon-list"></span>
+  </button>
+
+  <a class="navbar-brand" href="#"><%= I18n.t 'app_title'%></a>
+
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown g-add">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button">
+          <i class="icon-plus"></i>
+          Add
+          <span class="caret"></span>
+        </a>
+        <ul id="g-add-menu" class="dropdown-menu" role="menu" style="max-height: 397px;">
+          <li>
+            <a href="/reversion/version/add/"><i class="icon-plus"></i> Add Version</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button">
+          <strong>Welcome, admin</strong>
+          <span class="caret"></span>
+        </a>
+        <ul id="g-account-menu" class="dropdown-menu" role="menu" style="max-height: 397px;">
+          <li>
+            <a href="/account/password/"><i class="icon-key"></i></i> Change Password
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="">
+        <a href="/logout/">Log out</a>
+      </li>
+    </ul>
+    <form id="g-search" class="top-search-form navbar-form pull-left" method="get">
+      <div class="input-group">
+        <input type="text" class="form-control">
+
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-search"></i> Search <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#"><i class="icon-search"></i> Search Bug</a></li>
+            <li><a href="#"><i class="icon-search"></i> Search Project</a></li>
+          </ul>
+        </div>
+        <!-- /btn-group -->
+      </div>
+    </form>
+  </div>
+</div>

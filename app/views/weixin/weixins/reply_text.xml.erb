@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<xml>
-     <ToUserName><![CDATA[<%= params[:xml][:ToUserName] %>]]></ToUserName>
-     <FromUserName><![CDATA[<%= params[:xml][:FromUserName] %>]]></FromUserName>
-     <CreateTime><%= Time.now.to_i %></CreateTime>
-     <MsgType><![CDATA[text]]></MsgType>
-     <Content><![CDATA[You say: <%= params[:xml][:Content] %>?]]></Content>
-</xml>
+<xml><ToUserName><![CDATA[<%= @ToUserName %>]]></ToUserName><FromUserName><![CDATA[<%= @FromUserName %>]]></FromUserName><CreateTime><%= Time.now.to_i %></CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[You say: <%= @Content %>?]]></Content></xml>
