@@ -4,7 +4,7 @@ class Weixin::WeixinsController < ApplicationController
   before_filter :check_weixin_legality
 
   layout "weixin_msg"
-  
+
 # 空格 (&#x20;) 
 # Tab (&#x09;) 
 # 回车 (&#x0D;) 
@@ -22,7 +22,7 @@ class Weixin::WeixinsController < ApplicationController
     save_remessage
     #puts params[:xml][:MsgType]
 
-    render 'reply_text_welcome', :formats => :xml
+    render 'reply_text_welcome', :formats => :xml, layout: true
 
     #puts params[:xml][:ToUserName]
     #puts params[:xml][:Content]
@@ -36,12 +36,12 @@ class Weixin::WeixinsController < ApplicationController
     save_remessage
     
 
-    render 'reply_text_info', :formats => :xml
+    render 'reply_text_info', :formats => :xml, layout: true
   end
 
   def reply_text_news
     @content = "This model is not complete yet."
-    render 'reply_text', :formats => :xml
+    render 'reply_text', :formats => :xml, layout: true
   end
 
   def reply_music
@@ -49,7 +49,7 @@ class Weixin::WeixinsController < ApplicationController
     puts params[:xml].inspect
 
     save_remessage
-    render 'reply_music', :formats => :xml
+    render 'reply_music', :formats => :xml, layout: true
 
   end
 
