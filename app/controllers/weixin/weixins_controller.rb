@@ -5,10 +5,10 @@ class Weixin::WeixinsController < ApplicationController
 
   layout "weixin_msg"
 
-# 空格 (&#x20;) 
-# Tab (&#x09;) 
-# 回车 (&#x0D;) 
-# 换行 (&#x0A;)
+  # 空格 (&#x20;) 
+  # Tab (&#x09;) 
+  # 回车 (&#x0D;) 
+  # 换行 (&#x0A;)
 
   def auth
     puts 'in auth method.'
@@ -20,28 +20,21 @@ class Weixin::WeixinsController < ApplicationController
     puts params[:xml].inspect
 
     save_remessage
-    #puts params[:xml][:MsgType]
 
-    render 'reply_text_welcome', :formats => :xml, layout: true
-
-    #puts params[:xml][:ToUserName]
-    #puts params[:xml][:Content]
-    #  render "reply_text"
+    render 'reply_text_welcome', formats: :xml, layout: true
   end
 
   def reply_text_info
     puts 'in reply_text_info.'
     puts params[:xml].inspect
-
     save_remessage
-    
 
-    render 'reply_text_info', :formats => :xml, layout: true
+    render 'reply_text_info', formats: :xml, layout: true
   end
 
   def reply_text_news
     @content = "This model is not complete yet."
-    render 'reply_text', :formats => :xml, layout: true
+    render 'reply_text', formats: :xml, layout: true
   end
 
   def reply_music
@@ -49,7 +42,7 @@ class Weixin::WeixinsController < ApplicationController
     puts params[:xml].inspect
 
     save_remessage
-    render 'reply_music', :formats => :xml, layout: true
+    render 'reply_music', formats: :xml, layout: true
 
   end
 
@@ -58,9 +51,6 @@ class Weixin::WeixinsController < ApplicationController
   def check_weixin_legality
     array = [Rails.configuration.weixin_token, params[:timestamp], params[:nonce]].sort
     render text: "Forbidden", status: 403 if params[:signature] != Digest::SHA1.hexdigest(array.join)
-
-    #array = [Rails.configuration.weixin_token, params[:timestamp], params[:nonce]].sort
-    #render text: "Forbidden", status: 403 if params[:signature] != Digest::SHA1.hexdigest(array.join)
   end
 
   def save_remessage
@@ -73,7 +63,7 @@ class Weixin::WeixinsController < ApplicationController
   end
 
   def post_params
-    params.require(:xml).permit(:name)
+    params.require(:xml).permit(:msgType)
   end
 
 end

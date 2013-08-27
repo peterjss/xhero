@@ -17,7 +17,6 @@ module Weixin
 
     def matches?(request)
       xml = request.params[:xml]
-      puts xml.nil?
       result = true
       result = result && (xml[:MsgType] == @type) if @type
       result = result && (xml[:Content] =~ @content) if @content.is_a? Regexp
