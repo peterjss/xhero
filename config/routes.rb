@@ -34,7 +34,7 @@ Xhero::Application.routes.draw do
     
     match 'io', to: 'weixin/weixins#reply_text_info', constraints: Weixin::Router.new(type: "text") {|xml| xml[:Content].starts_with? "1"}
     match 'io', to: 'weixin/weixins#reply_text_news', constraints: Weixin::Router.new(type: "text") {|xml| xml[:Content].starts_with? "2"}
-    match 'io', to: 'weixin/weixins#reply_text_music', constraints: Weixin::Router.new(type: "text") {|xml| xml[:Content].starts_with? "3"}
+    match 'io', to: 'weixin/weixins#reply_music', constraints: Weixin::Router.new(type: "text") {|xml| xml[:Content].starts_with? "3"}
     match 'io', to: 'weixin/weixins#reply_text_welcome', constraints: Weixin::Router.new(type: "text")
 
     # match 'io', to: 'weixin/weixins#reply_image', constraints: Weixin::Router.new(type: "image")

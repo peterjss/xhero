@@ -3,7 +3,8 @@ class Weixin::WeixinsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :check_weixin_legality
 
-
+  layout "weixin_msg"
+  
 # 空格 (&#x20;) 
 # Tab (&#x09;) 
 # 回车 (&#x0D;) 
