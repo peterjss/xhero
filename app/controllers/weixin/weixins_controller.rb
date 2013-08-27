@@ -1,6 +1,13 @@
 class Weixin::WeixinsController < ApplicationController
+
   skip_before_filter :verify_authenticity_token
   before_filter :check_weixin_legality
+
+
+# 空格 (&#x20;) 
+# Tab (&#x09;) 
+# 回车 (&#x0D;) 
+# 换行 (&#x0A;)
 
   def auth
     puts 'in auth method.'
@@ -32,15 +39,16 @@ class Weixin::WeixinsController < ApplicationController
   end
 
   def reply_text_news
-
+    @content = "This model is not complete yet."
+    render 'reply_text', :formats => :xml
   end
 
-  def reply_text_music
-    puts 'in reply_text_music.'
+  def reply_music
+    puts 'in reply_music.'
     puts params[:xml].inspect
 
     save_remessage
-    render 'reply_text_music', :formats => :xml
+    render 'reply_music', :formats => :xml
 
   end
 
