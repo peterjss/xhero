@@ -7,25 +7,43 @@ class Weixin::WeixinsController < ApplicationController
     render :text => params[:echostr]
   end
 
-  def reply_text
-    puts 'in reply text.'
+  def reply_text_welcome
+    puts 'in reply_text_welcome.'
     puts params[:xml].inspect
 
-    @remessage = Remessage.new
-    @remessage[:toUserName] = weixin_xml.to_user
-    @remessage[:fromUserName] = weixin_xml.from_user
-    @remessage[:msgType] = weixin_xml.type
-    @remessage[:content] = weixin_xml.content
-
-    @remessage.save
+    save_remessage
     #puts params[:xml][:MsgType]
 
-    render 'reply_text', :formats => :xml
+    render 'reply_text_welcome', :formats => :xml
 
     #puts params[:xml][:ToUserName]
     #puts params[:xml][:Content]
     #  render "reply_text"
   end
+
+  def reply_text_info
+    puts 'in reply_text_info.'
+    puts params[:xml].inspect
+
+    save_remessage
+    
+
+    render 'reply_text_info', :formats => :xml
+  end
+
+  def reply_text_news
+
+  end
+
+  def reply_text_music
+    puts 'in reply_text_music.'
+    puts params[:xml].inspect
+
+    save_remessage
+    render 'reply_text_music', :formats => :xml
+
+  end
+
 
   private
   def check_weixin_legality
@@ -34,6 +52,15 @@ class Weixin::WeixinsController < ApplicationController
 
     #array = [Rails.configuration.weixin_token, params[:timestamp], params[:nonce]].sort
     #render text: "Forbidden", status: 403 if params[:signature] != Digest::SHA1.hexdigest(array.join)
+  end
+
+  def save_remessage
+    @remessage = Remessage.new
+    @remessage[:toUserName] = weixin_xml.to_user
+    @remessage[:fromUserName] = weixin_xml.from_user
+    @remessage[:msgType] = weixin_xml.type
+    @remessage[:content] = weixin_xml.content
+    @remessage.save
   end
 
   def post_params

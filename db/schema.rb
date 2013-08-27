@@ -11,9 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 0) do
-=======
 ActiveRecord::Schema.define(version: 20130826031550) do
 
   create_table "remessages", force: true do |t|
@@ -42,6 +39,6 @@ ActiveRecord::Schema.define(version: 20130826031550) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
->>>>>>> 21af30319dc6864d3692716ac724a8628778b577
+
 
 end

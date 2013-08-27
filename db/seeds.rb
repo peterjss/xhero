@@ -6,3 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create(username: 'admin', password: 'admin', realname: 'admin')
+Remessage.create(fromUserName: 'aaa', toUserName: 'bbb', msgType: 'text', content: 'test content.')
