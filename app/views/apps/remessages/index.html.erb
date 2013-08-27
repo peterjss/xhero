@@ -108,7 +108,9 @@
       </span>
   </li>
 </ul>
-<form id="changelist-form" method="post" action="">
+<%= form_for @message, url:apps_remessages_del_path, html:{id: 'changelist-form', method:'post'} do |fo| %>
+
+<!-- <form id="changelist-form" method="post" action=""> -->
   <div class="results">
     <% if @total == 0 %>
         <p class="well"><%= t('global_result_empty')%></p>
@@ -126,7 +128,7 @@
                 </a>
               </div>
               <div class="dropdown pull-left">
-                <a class="dropdown-toggle" href="#" data-toggle="dropdown"> To User Name </a>
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown"> From User Name </a>
 
                 <ul class="dropdown-menu" role="menu">
                   <li class="active">
@@ -151,7 +153,7 @@
               </div>
             </th>
 
-            <th scope="col"> From User name</th>
+            
             <th scope="col"> Content </th>
             <th scope="col"></th>
           </tr>
@@ -160,18 +162,14 @@
           <% @messages.each do |message| %>
               <tr class="row1">
                 <td class="action-checkbox">
-                  <input class="action-select" type="checkbox" value="4" name="_selected_action">
+                  <input class="action-select" type="checkbox" value="<%= message.id %>" name="_selected_action[]">
                 </td>
                 <td>
-                  <%= link_to edit_apps_remessage_path(message) do %><%= message.toUserName %>
+                  <%= link_to edit_apps_remessage_path(message) do %><%= message.contact.nil? ? message.fromUserName : message.contact[:nickname] %>
                   <% end %>
                   <!--<a href="/app/continent/4/update/">Koodoo</a>-->
                 </td>
-                <td>
-                  <%= link_to edit_apps_remessage_path(message) do %><%= message.fromUserName %>
-                  <% end %>
-                  <!--<a href="/app/continent/4/update/">Koodoo</a>-->
-                </td>
+
                 <td>
                   <%= link_to edit_apps_remessage_path(message) do %><%= message.content %>
                   <% end %>
@@ -233,7 +231,9 @@
         var _actions_icnt = <%=@total%>;
     </script>
   </div>
-</form>
+<!-- </form> -->
+<% end %>
+<!-- end of form -->
 </div>
 
 </div>

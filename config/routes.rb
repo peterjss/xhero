@@ -24,6 +24,9 @@ Xhero::Application.routes.draw do
 
   namespace "apps" do
     resources :users, :remessages
+
+    post "remessages/del", to: "remessages#destroy_all"
+
   end
 
   get "weixin/io",  to: "weixin/weixins#auth"

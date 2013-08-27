@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create(username: 'admin', password: 'admin', realname: 'admin')
 Remessage.create(fromUserName: 'aaa', toUserName: 'bbb', msgType: 'text', content: 'test content.')
+Remessage.create(fromUserName: 'bbb', toUserName: 'ccc', msgType: 'text', content: 'test content2.')
+Contact.create(openid: 'aaa', nickname: 'Peter')

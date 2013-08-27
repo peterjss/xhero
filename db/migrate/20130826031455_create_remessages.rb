@@ -18,6 +18,8 @@ class CreateRemessages < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :url
+
+      t.references :contact
       t.timestamps
     end
   end

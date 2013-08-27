@@ -18,7 +18,6 @@ class Weixin::WeixinsController < ApplicationController
   def reply_text_welcome
     puts 'in reply_text_welcome.'
     puts params[:xml].inspect
-
     save_remessage
 
     render 'reply_text_welcome', formats: :xml, layout: true
@@ -43,7 +42,6 @@ class Weixin::WeixinsController < ApplicationController
 
     save_remessage
     render 'reply_music', formats: :xml, layout: true
-
   end
 
 

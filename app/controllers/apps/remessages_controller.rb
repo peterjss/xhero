@@ -6,17 +6,28 @@ class Apps::RemessagesController < ApplicationController
 		  @messages = Remessage.all
 		else
 		  @messages = Remessage.where.order('#{odr} desc')
+		  
 		end
-
+		
+		@message = Remessage.new
 		@total = Remessage.count
 	end
 
 	def new
-		@messages = Remessage.new
+		# @message = Remessage.new
 	end
 
 	def show
-		
+	end
+
+	def destroy_all
+		params[:_selected_action].to_a.each do |mid|
+			if @message = Remessage.find(mid)
+				@message.destroy
+			end 
+		end
+
+		redirect_to action: :index
 	end
 
 	private
