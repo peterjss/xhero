@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   require 'net/http'
-
+  # layout "test_msg"
 
 
   def index
@@ -35,6 +35,7 @@ class WelcomeController < ApplicationController
     # @Content = 'Content'
 
     # render action: "weixin/weixins#reply_text"
+    # render "index", formats: :xml, layout:true
   end
 
   def login
