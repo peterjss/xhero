@@ -23,7 +23,7 @@ Xhero::Application.routes.draw do
   #   resources :products
 
   namespace "apps" do
-    resources :users, :remessages
+    resources :users, :remessages, :replies
 
     post "remessages/del", to: "remessages#destroy_all"
 

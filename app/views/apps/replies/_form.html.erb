@@ -1,0 +1,129 @@
+
+
+
+<!--<form id="continent_form" class="exform rended" method="post" action="" enctype="multipart/form-data">-->
+<div class="form-container row clearfix">
+  <div id="column-0" class="formColumn column form-column full col col-lg-12 form-horizontal ui-sortable"
+       horizontal="True" span="12">
+
+    <!--<div class="panel unsort no_title" id="box-0">-->
+      <!--<div class="panel-heading"><i class="icon icon-chevron-up chevron"></i></div>-->
+      <!--<div class="panel-body">-->
+        <!--<div id="div_id_name" class="form-group row">-->
+          <!--<label for="id_name" class="control-label">-->
+            <!--Name <span class="asterisk_field">*</span>-->
+          <!--</label>-->
+
+          <!--<div class="controls">-->
+
+            <!--<%= f.text_field :name, class:'text-field form-control', id:'id_name', maxlength:'256'%>-->
+
+            <!--&lt;!&ndash;<input class="text-field form-control" id="id_name" maxlength="256" name="name"&ndash;&gt;-->
+            <!--&lt;!&ndash;type="text">&ndash;&gt;-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div id="div_id_order" class="control-group row">-->
+          <!--<label for="id_order" class="control-label">-->
+            <!--Code <span class="asterisk_field">*</span>-->
+          <!--</label>-->
+
+          <!--<div class="controls">-->
+
+            <!--&lt;!&ndash;<input class="int-field form-control" id="id_order" name="order" type="text"></div>&ndash;&gt;-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <div class="panel formset" id="module_set-group">
+      <div class="panel-heading">
+        <i class="icon icon-chevron-up chevron"></i>
+        <a class="add-row" id="module_set-add-row" href="javascript:void(0)">
+          <i class="icon icon-plus"></i>
+        </a>
+        Roles
+      </div>
+
+      <div class="panel-body  formset-content nopadding" id="country_set-group-"
+           data-prefix="country_set" data-style="">
+        <div class="formset-row">
+          <div class="formset-heading">
+            <a class="delete-row pull-right">
+              <i class="icon icon-remove"></i>
+            </a>
+            <b>Role:</b> #
+            <span class="formset-num">1</span>
+          </div>
+          <div class="formset-form">
+            <div id="div_id_country_set-0-name" class="control-group row">
+              <label for="id_country_set-0-name" class="control-label">
+                <%= f.label :name%><span class="asterisk_field">*</span>
+              </label>
+
+              <div class="controls">
+                <!--<%= f.text_field :name, class:'text-field form-control', id:'id_country_set-0-name', maxlength:'256'%>-->
+                <input class="text-field form-control" id="id_country_set-0-name"
+                       maxlength="256"
+                       name="country_set-0-name" type="text">
+              </div>
+            </div>
+            <div id="div_id_country_set-0-code" class="control-group row">
+              <label for="id_country_set-0-code" class="control-label">
+                Code<span class="asterisk_field">*</span>
+              </label>
+
+              <div class="controls">
+                <input class="text-field form-control" id="id_country_set-0-code" maxlength="2"
+                       name="country_set-0-code" type="text">
+
+                <p id="hint_id_country_set-0-code" class="help-block">ISO 3166-1 alpha-2 -
+                  two character code</p></div>
+            </div>
+            <div class="control-group row">
+              <label for="id_module_set-0-independence_day" class="control-label">
+                Independence day
+              </label>
+
+              <div class="controls">
+                <div class="input-group date bootstrap-datepicker">
+                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                  <input id="id_module_set-0-independence_day"
+                         class="date-field form-control"
+                         size="10" type="text">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default" type="button">Today</button>
+                                                    </span>
+                </div>
+              </div>
+            </div>
+
+            <div id="div_id_country_set-0-description" class="control-group row">
+              <label for="id_module_set-0-description" class="control-label">
+                Description
+              </label>
+
+              <div class="controls">
+                <textarea class="textarea-field form-control" cols="40" rows="10"
+                          id="id_module_set-0-description"></textarea>
+
+                <p id="hint_id_module_set-0-description" class="help-block">Try and enter
+                  few some more lines</p></div>
+            </div>
+            <div id="div_id_module_set-0-architecture" class="control-group row">
+              <label for="id_module_set-0-architecture" class="control-label">
+                Architecture
+              </label>
+
+              <div class="controls">
+                <textarea class="textarea-field form-control" cols="40"
+                          id="id_module_set-0-architecture" rows="10"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

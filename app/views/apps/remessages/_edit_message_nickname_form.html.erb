@@ -1,0 +1,18 @@
+<!-- <form method="post" action="<%= apps_remessage_path(@message)%>" > -->
+<%= form_for @message, url: apps_remessage_path(@message) do |f|%>
+    <div id="div_id_name" class="control-group row"><label for="id_name" class="control-label">
+        Nick Name<span class="asterisk_field">*</span></label>
+        <div class="controls">
+        	<% if  @message.contact.nil? %>
+        		<%= f.text_field :fromUserName , class:'text-field form-control', id:'id_name', maxlength:'64'%>
+        	<% else %>
+	            <%= fields_for @message.contact do |contact_form| %>
+                	<%= contact_form.text_field :nickname , class:'text-field form-control', id:'id_name', maxlength:'64'%>
+              	<% end %>    
+        	<% end %>
+                                 
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-block btn-small">Apply</button>
+<%end%>
+<!-- </form> -->

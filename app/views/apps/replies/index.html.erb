@@ -1,0 +1,72 @@
+<%= stylesheet_link_tag "combody", media: "screen" %>
+<%= javascript_include_tag "combody" %>
+<%= javascript_include_tag "formbody" %>
+<%= javascript_include_tag "jquery_ui" %>
+
+<%= render 'layouts/topnav' %>
+<div id="body-content" class="row" style="margin-left:0;margin-right: 0;">
+
+  <%= render partial: 'layouts/leftside', locals:{ leftmenu: '/'+params[:controller] } %>
+
+  <div id="content-block" class="col col-sm-11 col-md-10 col-lg-10">
+    <ul class="breadcrumb">
+      <li><%=link_to home_path do%> Home <% end %></li>
+      <li>
+        <!--<a href="/heroapp/html/project/project.html">Projects</a>-->
+        <%=link_to apps_replies_path  do%> Auto Reply <% end %>
+      </li>
+      <li class="active"> Add Role</li>
+    </ul>
+
+    <div class="navbar content-navbar navbar-sm" data-class-lg="navbar content-navbar"
+         data-class-md="navbar content-navbar" data-class-sm="navbar content-navbar navbar-inverse"
+         data-toggle="breakpoint">
+
+      <button class="navbar-toggle nav-back" onclick="javascript: history.back();" type="button">
+        <i class="icon-arrow-left"></i>
+      </button>
+
+      <a class="navbar-brand collapsed" data-target="#top-nav .nav-collapse" data-toggle="collapse">
+        <i class="icon-globe">
+          <sub class="icon-plus"></sub>
+        </i>
+        Add role
+      </a>
+
+      <div class="nav-collapse collapse">
+        <ul class="nav navbar-nav"></ul>
+      </div>
+      <div class="navbar-btn pull-right"></div>
+    </div>
+
+    <%= form_for @role, url:apps_replies_path(@role), html:{id: 'continent_form', class: 'exform rended'} do |fo| %>
+        <%= render partial: 'form', locals:{f: fo}%>
+
+        <!--action buttons-->
+        <div class="form-actions well well-sm">
+
+          <div class="btn-group save-group visible-xs">
+            <button type="submit" class="default btn btn-primary col-xs col-xs-10">
+              <i class="icon-save"></i> Save
+            </button>
+            <button type="button" class="more btn btn-primary col-xs col-xs-2" data-toggle="collapse"
+                    data-target=".nav-collapse.more-btns">
+              <i class="icon-ellipsis-vertical"></i>
+            </button>
+          </div>
+
+          <button type="submit" class="default btn btn-primary hidden-xs" name="_save">
+            <i class="icon-save"></i>
+            Save
+          </button>
+          <div class="nav-collapse collapse more-btns">
+            <input class="btn btn-default" value="Save and add another" name="_addanother" type="submit">
+            <input class="btn btn-default" value="Save and continue editing" name="_continue" type="submit">
+          </div>
+
+        </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'layouts/footer' %>
+

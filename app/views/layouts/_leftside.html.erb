@@ -25,8 +25,10 @@
     <li <%= leftmenu == '' ? 'class=active' : '' %> >
       <a href="/app/continent/"> <i class="icon-fixed-width icon-lock"></i> <%= I18n.t 'menu_material'%></a>
     </li>
-    <li <%= leftmenu == '' ? 'class=active' : '' %> >
-      <a href="/app/continent/"> <i class="icon-fixed-width icon-user"></i> <%= I18n.t 'menu_autoreplay'%></a>
+    <li <%= leftmenu == apps_replies_path ? 'class=active' : '' %> >
+      <!--<a href="/app/continent/"> <i class="icon-fixed-width icon-user"></i> <%= I18n.t 'menu_autoreplay'%></a>-->
+      <%= link_to apps_replies_path do %> <i class="icon-fixed-width icon-user"></i> <%= I18n.t 'menu_autoreplay'%>
+      <% end %>
     </li>
     <li class="nav-header active"> System</li>
     <li <%= leftmenu == ''? 'class=active' : '' %> >

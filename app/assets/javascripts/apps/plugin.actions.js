@@ -8,7 +8,7 @@
             $(options.counterContainer).html(interpolate(
                 ngettext('%(sel)s of %(cnt)s selected', '%(sel)s of %(cnt)s selected', sel), {
                     sel: sel,
-                    cnt: _actions_icnt
+                    cnt: 0//_actions_icnt
                 }, true));
             if (sel == actionCheckboxes.length) {
                 showQuestion();

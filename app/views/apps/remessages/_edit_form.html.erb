@@ -1,0 +1,14 @@
+<!-- <form method="post" action="<%= apps_remessage_path(@message)%>" > -->
+	<%= form_for @message, url:apps_remessage_path(@message), html:{method:'post', enctype:'multipart/form-data'} do |fo|%>
+    <div id="div_id_name" class="control-group row"><label for="id_name" class="control-label">
+        Nick Name<span class="asterisk_field">*</span></label>
+        <div class="controls">
+            <input class="form-control" id="id_name"
+                                     maxlength="64" name=<%=%> type="text" value="Test Bug1"/>
+             <%= f.text_field :name, class:'text-field form-control', id:'id_name', maxlength:'64'%>
+
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-block btn-small">Apply</button>
+    <%end%>
+<!-- </form> -->

@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "combody", media: "screen" %>
 <%= javascript_include_tag "combody" %>
 
 <%= render 'layouts/topnav' %>
@@ -165,7 +166,14 @@
                   <input class="action-select" type="checkbox" value="<%= message.id %>" name="_selected_action[]">
                 </td>
                 <td>
-                  <%= link_to edit_apps_remessage_path(message) do %><%= message.contact.nil? ? message.fromUserName : message.contact[:nickname] %>
+                  <div class="btn-group pull-right">
+                      <a class="editable-handler" data-editable-loadurl="<%=edit_apps_remessage_path(message)%>" data-editable-field="<%=:fromUserName %>" title="" data-original-title="Enter Nick Name"><i class="icon-edit"></i></a>
+                      <a class="details-handler" title="Details of Test Bug1" rel="tooltip" data-edit-uri="<%=apps_remessage_path(message)%>" data-res-uri="<%=edit_apps_remessage_path(message)%>">
+                          <i class="icon-info-sign"></i>
+                      </a>
+                  </div>
+
+                  <%= link_to edit_apps_remessage_path(message), class: 'editable-field' do %><%= message.contact.nil? ? message.fromUserName : message.contact[:nickname] %>
                   <% end %>
                   <!--<a href="/app/continent/4/update/">Koodoo</a>-->
                 </td>

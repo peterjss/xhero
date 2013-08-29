@@ -52,13 +52,21 @@ class Weixin::WeixinsController < ApplicationController
   end
 
   def save_remessage
-    @remessage = Remessage.new
-    @remessage[:toUserName] = weixin_xml.to_user
-    @remessage[:fromUserName] = weixin_xml.from_user
-    @remessage[:msgType] = weixin_xml.type
-    @remessage[:content] = weixin_xml.content
+    remessage = Remessage.new
+    remessage[:toUserName] = weixin_xml.to_user
+    remessage[:fromUserName] = weixin_xml.from_user
+    remessage[:msgType] = weixin_xml.type
+    remessage[:content] = weixin_xml.content
+
+    contact = Contact.where({ openid: weixin_xml.from_user})
+    if contact != nil
+      remessage.contact = contact
+      contact.remessages << remessage
+    end
     @remessage.save
   end
+
+
 
   def post_params
     params.require(:xml).permit(:msgType)

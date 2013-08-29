@@ -29,7 +29,16 @@ ActiveRecord::Schema.define(version: 20130827055921) do
   end
 
   create_table "messages", force: true do |t|
-    t.string   "type"
+    t.string   "msgType"
+    t.string   "content"
+    t.string   "picUrl"
+    t.string   "locationx"
+    t.string   "locationy"
+    t.string   "scale"
+    t.string   "label"
+    t.string   "title"
+    t.string   "description"
+    t.string   "url"
     t.integer  "rolecard_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -111,6 +111,10 @@
                     this.$form.find('.controls').append(err_html.join('\n'))
                 } else {
                     this.$text.html(data['new_html'][this.field])
+                    // if(data['redirect']){
+                    //     window.location = data['redirect']
+                    // }
+                    
                     this.hide()
                 }
             }, this))

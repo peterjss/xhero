@@ -36,6 +36,7 @@ class WelcomeController < ApplicationController
 
     # render action: "weixin/weixins#reply_text"
     # render "index", formats: :xml, layout:true
+    #search_reply_message
   end
 
   def login
@@ -50,4 +51,16 @@ class WelcomeController < ApplicationController
     end
   end
 
+  private
+  def search_reply_message
+    content = "he"
+    keys = Messagekey.where("name = ?", "#{content}").where("isMatch = true")
+    keys += Messagekey.where("name like ?", "%#{content}%").where("isMatch = false")
+
+    #keys = roles.first.messagekeys.where("name like ?", "%#{hello}%").where("isMatch = false")
+    keys.each do |key|
+      puts key.name
+      puts key.rolecard.messages.first.content
+    end
+  end
 end
